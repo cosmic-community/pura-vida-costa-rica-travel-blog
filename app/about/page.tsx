@@ -1,5 +1,5 @@
 import { cosmic } from '@/lib/cosmic'
-import { AboutPage } from '@/types'
+import type { AboutPage } from '@/types'
 import { Metadata } from 'next'
 import AuthorCard from '@/components/AuthorCard'
 import StatCard from '@/components/StatCard'

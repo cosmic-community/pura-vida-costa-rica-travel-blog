@@ -9,6 +9,7 @@ export default function Header() {
     { name: 'Home', href: '/' },
     { name: 'Posts', href: '/posts' },
     { name: 'About', href: '/about' },
+    { name: 'Contact', href: '/contact' },
   ]
 
   return (

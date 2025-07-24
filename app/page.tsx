@@ -2,7 +2,7 @@ import { cosmic } from '@/lib/cosmic'
 import { Post, Category } from '@/types'
 import Hero from '@/components/Hero'
 import PostCard from '@/components/PostCard'
-import CategoryFilter from '@/components/CategoryFilter'
+import CategoryFilterWrapper from '@/components/CategoryFilterWrapper'
 
 async function getPosts(): Promise<Post[]> {
   try {
@@ -38,6 +38,7 @@ export default async function HomePage() {
   ])
 
   const featuredPost = posts[0]
+  const recentPosts = posts.slice(1)
 
   return (
     <div>
@@ -137,13 +138,7 @@ export default async function HomePage() {
             </p>
           </div>
 
-          <CategoryFilter categories={categories} />
-
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mt-12">
-            {posts.slice(1).map((post) => (
-              <PostCard key={post.id} post={post} />
-            ))}
-          </div>
+          <CategoryFilterWrapper categories={categories} posts={recentPosts} />
 
           <div className="text-center mt-12">
             <a href="/posts" className="btn-secondary">

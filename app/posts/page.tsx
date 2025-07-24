@@ -1,8 +1,7 @@
 import { cosmic } from '@/lib/cosmic'
 import { Post, Category } from '@/types'
 import { Metadata } from 'next'
-import PostCard from '@/components/PostCard'
-import CategoryFilter from '@/components/CategoryFilter'
+import PostsClient from '@/components/PostsClient'
 
 export const metadata: Metadata = {
   title: 'All Posts - Pura Vida Costa Rica',
@@ -52,20 +51,7 @@ export default async function PostsPage() {
           </p>
         </div>
 
-        <CategoryFilter categories={categories} />
-
-        {posts.length > 0 ? (
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mt-12">
-            {posts.map((post) => (
-              <PostCard key={post.id} post={post} />
-            ))}
-          </div>
-        ) : (
-          <div className="text-center py-12">
-            <h2 className="text-2xl font-bold text-gray-900 mb-4">No posts found</h2>
-            <p className="text-gray-600">Check back soon for new adventures!</p>
-          </div>
-        )}
+        <PostsClient posts={posts} categories={categories} />
       </div>
     </div>
   )

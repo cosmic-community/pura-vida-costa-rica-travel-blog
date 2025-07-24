@@ -56,72 +56,69 @@ export default async function HomePage() {
             </div>
             
             <div className="max-w-4xl mx-auto">
-              <div className="card overflow-hidden">
-                {featuredPost.metadata?.featured_image && (
-                  <div className="aspect-video overflow-hidden">
-                    <img
-                      src={`${featuredPost.metadata.featured_image.imgix_url}?w=1000&h=600&fit=crop&auto=format,compress`}
-                      alt={featuredPost.title}
-                      className="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
-                    />
-                  </div>
-                )}
-                
-                <div className="p-8">
-                  <div className="flex items-center gap-4 mb-4">
-                    {featuredPost.metadata?.category && (
-                      <span 
-                        className="category-badge text-white"
-                        style={{ backgroundColor: featuredPost.metadata.category.metadata?.color || '#16a34a' }}
-                      >
-                        {featuredPost.metadata.category.metadata?.icon} {featuredPost.metadata.category.metadata?.name}
-                      </span>
-                    )}
-                    {featuredPost.metadata?.read_time && (
-                      <span className="text-sm text-gray-500">
-                        {featuredPost.metadata.read_time} min read
-                      </span>
-                    )}
-                  </div>
-                  
-                  <h3 className="text-2xl font-bold text-gray-900 mb-3 hover:text-jungle-600 transition-colors">
-                    <a href={`/posts/${featuredPost.slug}`}>
-                      {featuredPost.title}
-                    </a>
-                  </h3>
-                  
-                  {featuredPost.metadata?.excerpt && (
-                    <p className="text-gray-600 mb-6 leading-relaxed">
-                      {featuredPost.metadata.excerpt}
-                    </p>
+              <div className="card overflow-hidden group">
+                <a href={`/posts/${featuredPost.slug}`} className="block h-full">
+                  {featuredPost.metadata?.featured_image && (
+                    <div className="aspect-video overflow-hidden">
+                      <img
+                        src={`${featuredPost.metadata.featured_image.imgix_url}?w=1000&h=600&fit=crop&auto=format,compress`}
+                        alt={featuredPost.title}
+                        className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                      />
+                    </div>
                   )}
                   
-                  <div className="flex items-center justify-between">
-                    {featuredPost.metadata?.author && (
-                      <div className="flex items-center gap-3">
-                        {featuredPost.metadata.author.metadata?.profile_photo && (
-                          <img
-                            src={`${featuredPost.metadata.author.metadata.profile_photo.imgix_url}?w=80&h=80&fit=crop&auto=format,compress`}
-                            alt={featuredPost.metadata.author.metadata?.name || featuredPost.metadata.author.title}
-                            className="w-10 h-10 rounded-full object-cover"
-                          />
-                        )}
-                        <div>
-                          <p className="font-medium text-gray-900">
-                            {featuredPost.metadata.author.metadata?.name || featuredPost.metadata.author.title}
-                          </p>
-                        </div>
-                      </div>
+                  <div className="p-8">
+                    <div className="flex items-center gap-4 mb-4">
+                      {featuredPost.metadata?.category && (
+                        <span 
+                          className="category-badge text-white"
+                          style={{ backgroundColor: featuredPost.metadata.category.metadata?.color || '#16a34a' }}
+                        >
+                          {featuredPost.metadata.category.metadata?.icon} {featuredPost.metadata.category.metadata?.name}
+                        </span>
+                      )}
+                      {featuredPost.metadata?.read_time && (
+                        <span className="text-sm text-gray-500">
+                          {featuredPost.metadata.read_time} min read
+                        </span>
+                      )}
+                    </div>
+                    
+                    <h3 className="text-2xl font-bold text-gray-900 mb-3 group-hover:text-jungle-600 transition-colors">
+                      {featuredPost.title}
+                    </h3>
+                    
+                    {featuredPost.metadata?.excerpt && (
+                      <p className="text-gray-600 mb-6 leading-relaxed">
+                        {featuredPost.metadata.excerpt}
+                      </p>
                     )}
                     
-                    <a 
-                      href={`/posts/${featuredPost.slug}`}
-                      className="btn-primary"
-                    >
-                      Read More
-                    </a>
+                    <div className="flex items-center justify-between">
+                      {featuredPost.metadata?.author && (
+                        <div className="flex items-center gap-3">
+                          {featuredPost.metadata.author.metadata?.profile_photo && (
+                            <img
+                              src={`${featuredPost.metadata.author.metadata.profile_photo.imgix_url}?w=80&h=80&fit=crop&auto=format,compress`}
+                              alt={featuredPost.metadata.author.metadata?.name || featuredPost.metadata.author.title}
+                              className="w-10 h-10 rounded-full object-cover"
+                            />
+                          )}
+                          <div>
+                            <p className="font-medium text-gray-900">
+                              {featuredPost.metadata.author.metadata?.name || featuredPost.metadata.author.title}
+                            </p>
+                          </div>
+                        </div>
+                      )}
+                      
+                      <span className="text-jungle-600 group-hover:text-jungle-700 font-medium transition-colors">
+                        Read More →
+                      </span>
+                    </div>
                   </div>
-                </div>
+                </a>
               </div>
             </div>
           </div>

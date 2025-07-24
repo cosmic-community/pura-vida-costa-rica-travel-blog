@@ -1,5 +1,7 @@
 # Pura Vida Costa Rica - Travel Blog
 
+LFG!!!
+
 ![App Preview](https://imgix.cosmicjs.com/a69e3d90-68ab-11f0-a051-23c10f41277a-photo-1518105779142-d975f22f1b0a-1753374687899.jpg?w=1200&h=300&fit=crop&auto=format,compress)
 
 A beautiful Costa Rica travel blog showcasing the authentic "Pura Vida" lifestyle through expert travel guides, adventure stories, and cultural insights. Built with Next.js 15 and powered by [Cosmic](https://www.cosmicjs.com).
